@@ -18,7 +18,7 @@ router.get('/head/getall',(req, res)=>{
 })
 
 
-/* SERVICIO GERENCIA */
+/* SERVICIO GERENCIA DATOS */
 
 router.get('/gerencia/getall',(req, res)=>{
     let sql ='select * from head'
@@ -30,15 +30,6 @@ router.get('/gerencia/getall',(req, res)=>{
     })
 })
 
-router.get('/gerencia/getallsa',(req, res)=>{
-    let sql ='select * from head'
-    conexion.query(sql,(err, rows, fields)=>{
-        if(err) throw err;
-        else{
-            res.json(rows)
-        }
-    })
-})
 
 
 
