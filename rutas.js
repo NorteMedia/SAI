@@ -1,10 +1,51 @@
 const router = require ('express').Router()
 const conexion= require ('./config/conexion')
 
+
 //---------- agregamos rutas--------
+
+
+/* SERVICIO TABLA HEAD */
+
+router.get('/head/getall',(req, res)=>{
+    let sql ='select * from head'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+
+/* SERVICIO GERENCIA */
+
+router.get('/gerencia/getall',(req, res)=>{
+    let sql ='select * from head'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+router.get('/gerencia/getallsa',(req, res)=>{
+    let sql ='select * from head'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+
+
+
 //get equipos
 router.get('/',(req, res)=>{
-    let sql ='select * from clientes'
+    let sql ='select * from head'
     conexion.query(sql,(err, rows, fields)=>{
         if(err) throw err;
         else{
