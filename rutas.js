@@ -7,7 +7,7 @@ const conexion= require ('./config/conexion')
 
 /* SERVICIO TABLA HEAD */
 
-router.get('/head/getalla',(req, res)=>{
+router.get('/head/getall',(req, res)=>{
     let sql ='select * from head'
     conexion.query(sql,(err, rows, fields)=>{
         if(err) throw err;
