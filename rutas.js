@@ -21,7 +21,7 @@ router.get('/head/getall',(req, res)=>{
 /* SERVICIO GERENCIA DATOS */
 
 router.get('/gerencia/getall',(req, res)=>{
-    let sql ='select * from head'
+    let sql ='select * from sai_prod.gerencia'
     conexion.query(sql,(err, rows, fields)=>{
         if(err) throw err;
         else{
@@ -30,7 +30,159 @@ router.get('/gerencia/getall',(req, res)=>{
     })
 })
 
+//abono_credito
+router.get('/abonocredito/getall',(req, res)=>{
+    let sql ='select * from sai_prod.abono_credito'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
 
+//calculadora_cobranza
+router.get('/calculadoracobranza/getall',(req, res)=>{
+    let sql ='select * from sai_prod.calculadora_cobranza'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//calculadora_colocacion
+router.get('/calculadoracolocacion/getall',(req, res)=>{
+    let sql ='select * from sai_prod.calculadora_colocacion'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//calculadora_diaria_ejecutivo
+router.get('/calculadoradiariaejecutivo/getall',(req, res)=>{
+    let sql ='select * from sai_prod.calculadora_diaria_ejecutivo'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//calculadora_general
+router.get('/calculadorageneral/getall',(req, res)=>{
+    let sql ='select * from sai_prod.calculadora_general'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//cliente
+router.get('/cliente/getall',(req, res)=>{
+    let sql ='select * from sai_prod.cliente'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//conteo_creditos
+router.get('/conteocreditos/getall',(req, res)=>{
+    let sql ='select * from sai_prod.conteo_creditos'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//credito_nuevo
+router.get('/creditonuevo/getall',(req, res)=>{
+    let sql ='select * from sai_prod.credito_nuevo'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//credtitos_activos
+router.get('/creditosactivos/getall',(req, res)=>{
+    let sql ='select * from sai_prod.creditos_activos'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//ejecutivo
+router.get('/ejecutivo/getall',(req, res)=>{
+    let sql ='select * from sai_prod.ejecutivo'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//gasolina_semanal
+router.get('/gasolina/getall',(req, res)=>{
+    let sql ='select * from sai_prod.gasolina_semanal'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//interes_semanal
+router.get('/interessemanal/getall',(req, res)=>{
+    let sql ='select * from sai_prod.interes_semanal'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//salida
+router.get('/salida/getall',(req, res)=>{
+    let sql ='select * from sai_prod.salida'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//traspaso
+router.get('/traspaso/getall',(req, res)=>{
+    let sql ='select * from sai_prod.traspaso'
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
 
 
 
