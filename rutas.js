@@ -30,6 +30,22 @@ router.get('/gerencia/getall',(req, res)=>{
     })
 })
 
+//agregar gerencia
+router.post('/gerencia/getall',( req, res)=>{
+    const{id_gerencia, email_gerencia,nombre_gerente, direccion__gerencia, id_head} = req.body
+
+    let sql = `insert into gerencia(id_gerencia, email_gerencia,nombre_gerente, direccion__gerencia, id_head) 
+    values('${id_gerencia}','${email_gerencia}','${nombre_gerente}','${direccion__gerencia}','${id_head}')`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'la gerencia fue agregada'})
+        }
+    })
+})
+
+
+
 //abono_credito
 router.get('/abonocredito/getall',(req, res)=>{
     let sql ='select * from sai_prod.abono_credito'
@@ -40,6 +56,8 @@ router.get('/abonocredito/getall',(req, res)=>{
         }
     })
 })
+
+
 
 //calculadora_cobranza
 router.get('/calculadoracobranza/getall',(req, res)=>{
