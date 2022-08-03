@@ -90,6 +90,19 @@ router.put('/gerencia/:id',(req, res)=>{
 })
 
 
+//credito
+router.get('/credito/getcreditosactivosejecutivo',(req, res)=>{
+    let sql =`select sai_prod.cliente.nombre_Cliente,  sai_prod.credito.*  from sai_prod.credito
+    JOIN sai_prod.cliente ON sai_prod.cliente.id_cliente = sai_prod.credito.id_cliente
+    WHERE estado_credito = 1 AND id_ejecutivo = 37;`
+    
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
 
 
 //abono_credito
