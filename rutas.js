@@ -269,6 +269,78 @@ router.get('/calculadoracolocacion/getall',(req, res)=>{
     })
 })
 
+//agregar calculadora_colocacion
+router.post('/calculadoracolocacion/add/',( req, res)=>{
+    const{id_calculadora_colocacion, lunes_colocacion,martes_colocacion, miercoles_colocacion, jueves_colocacion, viernes_colocacion, sabado_colocacion, meta_colocacion, fecha_colocacion, id_ejecutivo_colocacion, id_gerencia_colocacion} = req.body
+
+    let sql = `insert into sai_prod.calculadora_colocacion(id_calculadora_cobranza, lunes_colocacion,martes_colocacion, miercoles_colocacion, jueves_colocacion, viernes_colocacion,sabado_colocacion,meta_colocacion, fecha_colocacion, id_ejecutivo_colocacion, id_gerencia_colocacion) 
+    values('${id_calculadora_colocacion}','${lunes_colocacion}','${martes_colocacion}','${miercoles_colocacion}','${jueves_colocacion}'),'${viernes_colocacion}'),'${sabado_colocacion}'),'${meta_colocacion}'),'${fecha_colocacion}'),'${id_ejecutivo_colocacion}'),'${id_gerencia_colocacion}')`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'la calculadora colocacion fue agregada'})
+        }
+    })
+})
+
+// get una calculadora_colocacion
+router.get('/calculadoracolocacion/:id',(req, res)=>{
+    const {id} = req.params
+    let sql ='select * from sai_prod.calculadora_colocacion where id_calculadora_cobranza = ?'
+    conexion.query(sql,[id],(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//eliminar calculadora_colocacion
+router.delete('/calculadoracolocacion/:id',(req, res)=>{
+    const{id} = req.params
+
+    let sql =`delete from sai_prod.calculadora_colocacion where id_calculadora_cobranza = '${id}'`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'calculadora colocacion se ha eliminado'})
+        }
+    })
+});
+
+//modificar calculadora_colocacion
+router.put('/calculadoracolocacion/:id',(req, res)=>{
+    const{id}=req.params
+    const{id_calculadora_colocacion, lunes_colocacion,martes_colocacion, miercoles_colocacion, jueves_colocacion, viernes_colocacion, sabado_colocacion, meta_colocacion, fecha_colocacion, id_ejecutivo_colocacion, id_gerencia_colocacion} = req.body
+
+    let sql = `update sai_prod.calculadora_colocacion set 
+    id_calculadora_colocacion ='${id_calculadora_colocacion}',
+    lunes_colocacion='${lunes_colocacion}',
+    martes_colocacion='${martes_colocacion}',
+    miercoles_colocacion='${miercoles_colocacion}',
+    jueves_colocacion = '${jueves_colocacion}',
+    viernes_colocacion = '${viernes_colocacion}',
+    sabado_colocacion = '${sabado_colocacion}',
+    meta_colocacion = '${meta_colocacion}',
+    fecha_colocacion = '${fecha_colocacion}',
+    id_ejecutivo_colocacion = '${id_ejecutivo_colocacion}',
+    id_gerencia_colocacion = '${id_gerencia_colocacion}'`
+                
+    
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'La calculadora colocacion se ha modificado'})
+        }
+    })
+})
+
+
+
+
+
+
+
 //calculadora_diaria_ejecutivo
 router.get('/calculadoradiariaejecutivo/getall',(req, res)=>{
     let sql ='select * from sai_prod.calculadora_diaria_ejecutivo'
@@ -291,6 +363,9 @@ router.get('/calculadorageneral/getall',(req, res)=>{
     })
 })
 
+
+
+
 //cliente
 router.get('/cliente/getall',(req, res)=>{
     let sql ='select * from sai_prod.cliente'
@@ -301,6 +376,75 @@ router.get('/cliente/getall',(req, res)=>{
         }
     })
 })
+
+//agregar Cliente
+router.post('/cliente/add/',( req, res)=>{
+    const{id_cliente,nombre_aval,numero_cliente_gerencia,nombre_cliente,direccion_cliente,telefono_cliente,ultimo_credito,referencia_cliente,id_gerencia} = req.body
+
+    let sql = `insert into sai_prod.cliente(id_cliente,nombre_aval,numero_cliente_gerencia,nombre_cliente,direccion_cliente,telefono_cliente,ultimo_credito,referencia_cliente,id_gerencia) 
+    values('${id_cliente}','${nombre_aval}','${numero_cliente_gerencia}','${nombre_cliente}','${direccion_cliente}'),'${telefono_cliente}'),'${ultimo_credito}'),'${referencia_cliente}'),${id_gerencia}')`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'la c fue agregada'})
+        }
+    })
+})
+
+// get un Cliente
+router.get('/cliente/:id',(req, res)=>{
+    const {id} = req.params
+    let sql ='select * from sai_prod.calculadora_cobranza where id_calculadora_cobranza = ?'
+    conexion.query(sql,[id],(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
+//eliminar Cliente
+router.delete('/cliente/:id',(req, res)=>{
+    const{id} = req.params
+
+    let sql =`delete from sai_prod.calculadora_cobranza where id_calculadora_cobranza = '${id}'`
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'La calculadora se ha eliminado'})
+        }
+    })
+});
+
+//modificar Cliente
+router.put('/cliente/:id',(req, res)=>{
+    const{id}=req.params
+    const{id_cliente,nombre_aval,numero_cliente_gerencia,nombre_cliente,direccion_cliente,telefono_cliente,ultimo_credito,referencia_cliente,id_gerencia} = req.body
+
+    let sql = `update sai_prod.calculadora_cobranza set 
+                id_cliente='${id_cliente}',
+                nombre_aval='${nombre_aval}',
+                numero_cliente_gerencia='${numero_cliente_gerencia}',
+                nombre_cliente='${nombre_cliente}',
+                direccion_cliente= '${direccion_cliente}',
+                telefono_cliente= '${telefono_cliente}',
+                ultimo_credito= '${ultimo_credito}',
+                referencia_cliente= '${referencia_cliente}',
+                id_gerencia= '${id_gerencia}'`
+                
+    
+    conexion.query(sql, (err, rows, fields)=>{
+        if(err) throw err
+        else{
+            res.json({status: 'La calculadora cobranza se ha modificado'})
+        }
+    })
+})
+
+
+
+
+
 
 //conteo_creditos
 router.get('/conteocreditos/getall',(req, res)=>{
