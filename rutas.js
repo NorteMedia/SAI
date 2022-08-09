@@ -91,7 +91,7 @@ router.put('/gerencia/:id',(req, res)=>{
 })
 
 
-//credito
+//PRESENTACION
 router.get('/credito/getcreditosactivosejecutivo',(req, res)=>{
     let sql =`select sai_prod.cliente.nombre_Cliente,  sai_prod.credito.*  from sai_prod.credito
     JOIN sai_prod.cliente ON sai_prod.cliente.id_cliente = sai_prod.credito.id_cliente
@@ -115,6 +115,21 @@ router.get('/credito/getcontadorgerencia',(req, res)=>{
         }
     })
 })
+
+router.get('/ejecutivo/getdatoscompletos',(req, res)=>{
+    let sql =`SELECT * FROM sai_prod.ejecutivo 
+    JOIN gerencia ON gerencia.id_gerencia=ejecutivo.id_gerencia
+    JOIN head ON gerencia.id_head=head.id_head
+    where id_ejecutivo = 37 ;`
+    
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
 
 
 //abono_credito
