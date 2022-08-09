@@ -104,6 +104,17 @@ router.get('/credito/getcreditosactivosejecutivo',(req, res)=>{
     })
 })
 
+router.get('/credito/getcontadorgerencia',(req, res)=>{
+    let sql =`SELECT count(*) FROM sai_prod.cliente where id_gerencia = 5;`
+    
+    conexion.query(sql,(err, rows, fields)=>{
+        if(err) throw err;
+        else{
+            res.json(rows)
+        }
+    })
+})
+
 
 //abono_credito
 router.get('/abonocredito/getall',(req, res)=>{
