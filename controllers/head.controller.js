@@ -11,9 +11,8 @@ exports.create = (req, res) => {
 
   // Create a Head
   const head = new Head({
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published || false
+    email_head: req.body.email_head,
+    nombre_head: req.body.nombre_head
   });
 
   // Save head in the database
@@ -58,17 +57,7 @@ exports.findOne = (req, res) => {
   });
 };
 
-// find all published heads
-exports.findAllPublished = (req, res) => {
-  Head.getAllPublished((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving heads."
-      });
-    else res.send(data);
-  });
-};
+
 
 // Update a head identified by the id in the request
 exports.update = (req, res) => {
@@ -117,14 +106,3 @@ exports.delete = (req, res) => {
   });
 };
 
-// Delete all heads from the database.
-exports.deleteAll = (req, res) => {
-  head.removeAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all heads."
-      });
-    else res.send({ message: `All heads were deleted successfully!` });
-  });
-};

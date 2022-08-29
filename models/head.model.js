@@ -1,10 +1,9 @@
 const sql = require("../config/conexion");
 
-// constructor
 const Head = function(head) {
-  this.title = head.title;
-  this.description = head.description;
-  this.published = head.published;
+  this.email_head = head.email_head;
+  this.nombre_head = head.nombre_head;
+  
 };
 
 Head.create = (newHead, result) => {
@@ -43,7 +42,7 @@ Head.getAll = (title, result) => {
   let query = "SELECT * FROM head";
 
   if (title) {
-    query += ` WHERE title LIKE '%${title}%'`;
+    query += ` WHERE email_head LIKE '%${title}%'`;
   }
 
   sql.query(query, (err, res) => {
@@ -58,18 +57,6 @@ Head.getAll = (title, result) => {
   });
 };
 
-Head.getAllPublished = result => {
-  sql.query("SELECT * FROM head WHERE published=true", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
-
-    console.log("head: ", res);
-    result(null, res);
-  });
-};
 
 Head.updateById = (id, head, result) => {
   sql.query(
@@ -113,17 +100,6 @@ Head.remove = (id, result) => {
   });
 };
 
-Head.removeAll = result => {
-  sql.query("DELETE FROM head", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
 
-    console.log(`deleted ${res.affectedRows} head`);
-    result(null, res);
-  });
-};
 
 module.exports = Head;
