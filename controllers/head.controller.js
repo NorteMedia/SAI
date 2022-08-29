@@ -106,3 +106,14 @@ exports.delete = (req, res) => {
   });
 };
 
+// Delete all heads from the database.
+exports.deleteAll = (req, res) => {
+  head.removeAll((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while removing all heads."
+      });
+    else res.send({ message: `All heads were deleted successfully!` });
+  });
+};

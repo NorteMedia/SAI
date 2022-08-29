@@ -9,7 +9,7 @@ const Head = require("./controllers/head.controller");
 /* SERVICIO TABLA HEAD */
 
 router.get("/head/getall", Head.findAll);
-router.get("/head/add/", Head.create);
+router.post("/head/add/", Head.create);
 
 /* SERVICIO GERENCIA DATOS */
 
@@ -112,7 +112,7 @@ router.get('/ejecutivo/getdatoscompletos',(req, res)=>{
     let sql =`SELECT * FROM sai_prod.ejecutivo 
     JOIN gerencia ON gerencia.id_gerencia=ejecutivo.id_gerencia
     JOIN head ON gerencia.id_head=head.id_head
-    where id_ejecutivo = 37 ;`
+    where id_ejecutivo = 36 ;`
     
     conexion.query(sql,(err, rows, fields)=>{
         if(err) throw err;
