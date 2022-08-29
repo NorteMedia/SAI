@@ -1,4 +1,4 @@
-//agregar 
+/* //agregar 
 router.post('//add/',( req, res)=>{
     const{} = req.body
 
@@ -61,4 +61,4 @@ router.put('//:id',(req, res)=>{
             res.json({status: 'La calculadora cobranza se ha modificado'})
         }
     })
-})
+}) */
