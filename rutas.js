@@ -1,23 +1,14 @@
 //hola uwu
 const router = require ('express').Router()
-const conexion= require ('./config/conexion')
-
+const conexion =  require ('./config/conexion')
+const Head = require("../controllers/head.controller.js");
 
 //---------- agregamos rutas--------
 
 
 /* SERVICIO TABLA HEAD */
 
-router.get('/head/getall',(req, res)=>{
-    let sql ='select * from head'
-    conexion.query(sql,(err, rows, fields)=>{
-        if(err) throw err;
-        else{
-            res.json(rows)
-        }
-    })
-})
-
+router.get("/", tutorials.findAll);
 
 /* SERVICIO GERENCIA DATOS */
 
