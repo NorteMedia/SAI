@@ -8,7 +8,7 @@ const Head = require("../controllers/head.controller.js");
 
 /* SERVICIO TABLA HEAD */
 
-router.get("/", tutorials.findAll);
+router.get("/", Head.findAll);
 
 /* SERVICIO GERENCIA DATOS */
 
