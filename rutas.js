@@ -1,7 +1,7 @@
 //hola uwu
 const router = require ('express').Router()
 const conexion =  require ('./config/conexion')
-const Head = require("../controllers/head.controller.js");
+const Head = require("./controllers/head.controller");
 
 //---------- agregamos rutas--------
 

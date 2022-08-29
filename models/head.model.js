@@ -1,4 +1,4 @@
-const sql = require("./db.js");head
+const sql = require("../config/conexion");
 
 // constructor
 const Head = function(head) {
@@ -94,7 +94,7 @@ Head.updateById = (id, head, result) => {
   );
 };
 
-head.remove = (id, result) => {
+Head.remove = (id, result) => {
   sql.query("DELETE FROM head WHERE id = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
