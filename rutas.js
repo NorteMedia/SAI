@@ -5,6 +5,9 @@ const Head = require("./controllers/head.controller");
 
 //---------- agregamos rutas--------
 
+router.get('/test',(req, res)=>{
+    res.send("HOLA MUNDO")
+})
 
 /* SERVICIO TABLA HEAD */
 
