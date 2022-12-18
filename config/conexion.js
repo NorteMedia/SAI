@@ -16,7 +16,7 @@ client.connect((err) => {
   }
 });
 
-client.query('SELECT * FROM tabla', (err, res) => {
+client.query('SELECT * FROM test', (err, res) => {
     if (err) {
       console.error('Error en la consulta:', err.stack);
     } else {
