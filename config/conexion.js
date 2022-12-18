@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const client = new Client({
+const conexion = new Client({
   host: 'localhost',
   port: 5432,
   user: 'franck5532',
@@ -8,7 +8,7 @@ const client = new Client({
   database: 'admin_sai_backend'
 });
 
-client.connect((err) => {
+conexion.connect((err) => {
   if (err) {
     console.error('Error de conexión:', err.stack);
   } else {
@@ -16,11 +16,4 @@ client.connect((err) => {
   }
 });
 
-client.query('SELECT * FROM test', (err, res) => {
-    if (err) {
-      console.error('Error en la consulta:', err.stack);
-    } else {
-      console.log('Resultado de la consulta:', res.rows);
-    }
-  });
-  
+module.exports=conexion
