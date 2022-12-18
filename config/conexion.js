@@ -1,8 +1,8 @@
 const mysql = require('mysql');
 
 const conexion = mysql.createConnection({
-    host: '192.81.218.226',
-    port: '3306',
+    host: 'localhost',
+    port: '5432',
     user: 'franck5532',
     password: 'AVNS_8oCZ2HHoszYCU0o',
     database: 'sai_prod'
