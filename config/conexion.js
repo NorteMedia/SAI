@@ -15,3 +15,12 @@ client.connect((err) => {
     console.log('Conectado a la base de datos');
   }
 });
+
+client.query('SELECT * FROM tabla', (err, res) => {
+    if (err) {
+      console.error('Error en la consulta:', err.stack);
+    } else {
+      console.log('Resultado de la consulta:', res.rows);
+    }
+  });
+  
